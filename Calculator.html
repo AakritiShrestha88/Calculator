@@ -1,0 +1,122 @@
+<html>
+    <head>
+    <title>My Calculator</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .box{
+         background-color: white;
+         height:270px;
+         width:250px;
+         border-radius:10px;
+         position: relative;
+         top: 80px;
+         left:40%;
+        }
+        .display{
+            background-color: #bccd95;
+            width: 225px;
+            position: relative;
+            left: 15px;
+            top: 20px;
+            height: 40px;
+        }
+        .display input{
+            position: relative;
+            left: 2px;
+            top: 2px;
+            height: 35px;
+            color:black;
+            background-color: #bccd95;
+            font-size: 26px;
+            text-align: right;
+        }
+        .keys{
+            position: relative;
+            top: 15px;
+        }
+        .button{
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 17px;
+            cursor: pointer;
+            border-top: 2px solid transparent;
+        }
+        .button.black{
+            color: white;
+            background-color: #000000;
+            border-bottom: black 2px solid;
+            border-top: 2px #6f6f6f solid;
+        }
+        .button.yellow{
+            color:black;
+            background-color: #ffd800;
+            border-bottom: black 2px solid;
+        }
+        .button.orange{
+            color:black;
+            background-color:darkgray;
+            border-bottom: black 2px solid;
+        }
+    </style>
+    <script>
+        //i am passing the val =number
+        function TakeValue(val){
+            //the value whatever i have in textarea + the value which i am going to enter
+            //so,simply i have old value and adding the new value
+            //1.assigning value to the text box
+            document.getElementById("result").value+=val;
+        }
+        function CalculateValue(){
+            //calculate value is calling the eval function, it is taking whatever i have in text box  that is result is trying to evaluate
+            //after evaluting assign the same value i.e result in the textarea or text box
+//2.setting value to the text box
+
+            document.getElementById("result").value=eval(document.getElementById("result").value)
+        }
+        //i am passing the value val=empty string for clear value(" ")
+        function ClearValue(val){
+            //i am assinging the empty string(" ") to the result text box ,it is clearing
+         document.getElementById("result").value=val;
+        }
+    </script>
+</head>
+    <body>
+      <div class="box" >
+          <div class="display">
+              <input type="text" readonly size="16" id="result">
+          </div>
+          <div class="keys">
+              <p>
+                  <input type="button" class="button black" value="7"onclick='TakeValue("7")'>
+                  <input type="button" class="button black" value="8"onclick='TakeValue("8")'>
+                  <input type="button" class="button black" value="9"onclick='TakeValue("9")'>
+                  <input type="button" class="button yellow" value="*"onclick='TakeValue("*")'>
+              </p>
+              <p>
+                <input type="button" class="button black" value="4"onclick='TakeValue("4")'>
+                <input type="button" class="button black" value="5"onclick='TakeValue("5")'>
+                <input type="button" class="button black" value="6"onclick='TakeValue("6")'>
+                <input type="button" class="button yellow" value="-"onclick='TakeValue("-")'>
+            </p>
+            <p>
+                <input type="button" class="button black" value="1"onclick='TakeValue("1")'>
+                <input type="button" class="button black" value="2"onclick='TakeValue("2")'>
+                <input type="button" class="button black" value="3"onclick='TakeValue("3")'>
+                <input type="button" class="button yellow" value="+"onclick='TakeValue("+")'>
+            </p>
+            <p>
+                <input type="button" class="button black" value="0"onclick='TakeValue("0")'>
+                <input type="button" class="button black" value="C"onclick='ClearValue("")'>
+                <input type="button" class="button orange" value="="onclick='CalculateValue()'>
+                <input type="button" class="button yellow" value="/"onclick='TakeValue("/")'>
+            </p>
+
+
+          </div>
+      </div> 
+    </body>
+</html>
